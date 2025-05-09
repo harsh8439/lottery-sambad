@@ -2,22 +2,91 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Admin_panel.css";
 import { FaRegUserCircle } from "react-icons/fa";
 import cardImage from "../assets/image/image.png";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AdminPanel() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [image1PM, setImage1PM] = useState(null);
   const [image6PM, setImage6PM] = useState(null);
   const [image8PM, setImage8PM] = useState(null);
+  const [file, setFile] = useState();
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
+  const navigation = useNavigate()
 
-  const handleUpload = (e, setImageFn) => {
+
+  const handleUpload = async (e, time, setImageFn) => {
     const file = e.target.files[0];
-    if (file) {
-      setImageFn(URL.createObjectURL(file));
+    if (!file) return;
+  
+    const token = localStorage.getItem("token");
+    const formData = new FormData();
+    formData.append("time", time); 
+    formData.append("image", file);
+  
+    try {
+      const response = await fetch(
+        "https://test.pearl-developer.com/lottery/public/api/post-result",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      );
+  
+      if (response.ok) {
+        setImageFn(URL.createObjectURL(file)); 
+        toast.success(`${time} result uploaded successfully.`);
+      } else {
+        toast.error(`Failed to upload ${time} result.`);
+      }
+    } catch (error) {
+      toast.error("An error occurred while uploading.");
+      console.error(error);
     }
   };
+  
+
+
+
+const handlelogout = async () => {
+  const token = localStorage.getItem("token");
+  const response = await fetch(
+    "https://test.pearl-developer.com/lottery/public/api/admin-logout",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+
+  if (response.ok) {
+    localStorage.removeItem("token");
+    toast.success("Logout successful!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
+    setTimeout(() => {
+      navigation("/login");
+    }, 1000); // delay navigation so toast can show
+  } else {
+    toast.error("Logout failed. Please try again.");
+  }
+};
+
 
   useEffect(() => {
     const clickHandler = ({ target }) => {
@@ -53,36 +122,53 @@ export default function AdminPanel() {
           <img
             src={image}
             alt={`${time} result`}
-            style={{ width: "300px", height: "200px", objectFit:"cover" ,borderRadius: "10px" }}
+            style={{
+              width: "300px",
+              height: "200px",
+              objectFit: "cover",
+              borderRadius: "10px",
+            }}
           />
           <div style={{ marginTop: "10px" }}>
             <label>
-              <input type="file" accept="image/*" hidden onChange={(e) => handleUpload(e, setImage)} />
+              <input
+                type="file"
+                accept="image/*"
+                hidden
+                onChange={(e) => handleUpload(e, time, setImage)}
+              />
               <div className="choose-btn">Choose Another File</div>
             </label>
           </div>
         </>
       ) : (
         <div className="upload-box">
-          <svg className="mx-auto" width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <path
-              d="M31.65 10.61L32.25 10.07L31.65 10.61Z..."
-              fill="#4F46E5"
-            />
-          </svg>
-          <h2 className="text-center text-gray-400 text-xs">PNG, JPG or PDF, smaller than 10MB</h2>
-          <h4 className="text-center text-gray-900 text-sm font-medium">Drag and Drop or</h4>
+          {/* SVG + Instructions */}
+          <h2 className="text-center text-gray-400 text-xs">
+            PNG, JPG or PDF, smaller than 10MB
+          </h2>
+          <h4 className="text-center text-gray-900 text-sm font-medium">
+            Drag and Drop or
+          </h4>
           <label>
-            <input type="file" accept="image/*" hidden onChange={(e) => handleUpload(e, setImage)} />
+            <input
+              type="file"
+              accept="image/*"
+              hidden
+              onChange={(e) => handleUpload(e, time, setImage)}
+            />
             <div className="choose-btn">Choose File</div>
           </label>
         </div>
       )}
     </div>
   );
-
+  
   return (
     <div className="dashboard">
+<ToastContainer />
+
+
       {/* Header */}
       <header className="dashboard-header">
         <div className="logocontainer">
@@ -99,6 +185,7 @@ export default function AdminPanel() {
               >
                 <FaRegUserCircle color="black" size={30} />
               </div>
+
               <div
                 ref={dropdown}
                 className={`absolute right-0 top-full w-[240px] rounded-lg p-2 bg-white ${
@@ -106,9 +193,11 @@ export default function AdminPanel() {
                 }`}
               >
                 <div className="px-4 py-3">
-                  <p className="text-xl font-semibold text-blue-500">Harsh Sharma</p>
+                  <p className="text-xl font-semibold text-blue-500">
+                    Harsh Sharma
+                  </p>
                 </div>
-                <button className="w-full px-4 py-2 text-sm text-dark hover:bg-gray-50">
+                <button onClick={handlelogout} className="w-full px-4 py-2 text-sm text-dark hover:bg-gray-50">
                   Log out
                 </button>
               </div>
@@ -128,26 +217,30 @@ export default function AdminPanel() {
       <div className="oldresultsection">
         <h3>OLD RESULTS</h3>
       </div>
+      <div className="filters">
+        <div>
+          <label>DATE</label>
+          <input type="date" />
+        </div>
+      </div>
       <section className="old-results">
-        <div className="filters">
-          <div>
-            <label>DATE</label>
-            <input type="date" />
-          </div>
-          <div>
-            <label>Time</label>
-            <select>
-              <option>1:00pm</option>
-              <option>6:00pm</option>
-              <option>8:00pm</option>
-            </select>
+        <div className="result-card card-1pm">
+          <h2>6 PM RESULT</h2>
+          <div className="old-result-image">
+            <img src={cardImage} alt="Old Result" />
           </div>
         </div>
         <div className="result-card card-1pm">
           <h2>1 PM RESULT</h2>
           <div className="old-result-image">
-          <img src={cardImage} alt="Old Result" />
+            <img src={cardImage} alt="Old Result" />
+          </div>
         </div>
+        <div className="result-card card-1pm">
+          <h2>8 PM RESULT</h2>
+          <div className="old-result-image">
+            <img src={cardImage} alt="Old Result" />
+          </div>
         </div>
       </section>
     </div>

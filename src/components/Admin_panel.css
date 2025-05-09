@@ -97,11 +97,6 @@
   background: #e4e4e4;
 }
 
-/* Clock Emoji */
-.clock {
-  font-size: 2rem;
-  margin: 0.5rem 0;
-}
 
 /* Custom Color Cards */
 .card-1pm {
@@ -120,10 +115,11 @@
 .old-results {
   padding: 1rem 2rem;
   margin: auto;
-  width: fit-content;
+  width: auto;
   justify-content: center;
   align-items: center;
   display: flex;
+  gap: 2rem;
 
 }
 
@@ -141,6 +137,8 @@ h3 {
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .filters label {
@@ -217,10 +215,10 @@ h3 {
 }
 .old-result-image {
   transition: transform 0.2s ease;
-  cursor: zoom-in;
+  background-color: #ff0000;
 }
 
 .old-result-image:hover {
-  transform: scale(2.5);
+  transform: scale(1);
 }
 
