@@ -1,0 +1,222 @@
+.faq-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  .faq-sidebar {
+    width: 250px;
+    background-color: #0d2a68;
+    color: white;
+    padding: 20px;
+  }
+  
+  .faq-main {
+    flex: 1;
+    background-color: #f4f4f4;
+  }
+  
+  .faq__Container {
+    padding-inline: 20px;
+  }
+  .faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .faq-header h1 {
+    font-size: 24px;
+    color: white;
+    background-color: #0d2a68;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .faq-profile {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .faq-add-btn {
+    text-align: right;
+    margin: 20px 0;
+  }
+  
+  .faq-add-btn button {
+    background-color: #0d2a68;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .faq-table-container {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+  }
+  
+  .faq-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+  }
+  
+  .faq-table th {
+    background-color: #0d2a68;
+    color: white;
+    padding: 12px;
+    text-align: left;
+  }
+  .faq-table th,
+.faq-table td {
+  text-align: center;
+}
+
+  .faq-table td {
+    padding: 12px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .faq-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+
+  .faq-add-btn {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.faq-add-btn input {
+  padding: 8px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* black semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-content input,
+.modal-content textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  color: white;
+}
+
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+
+
+.faq-header,
+.faq-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 2fr 120px;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-header {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.faq-item {
+  background-color: #fff;
+}
+
+.faq-col {
+  padding: 8px;
+}
+
+.faq-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.faq-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.faq-actions button:hover {
+  color: #007bff;
+}
+
+.faq-actions button:focus {
+  outline: none;
+}

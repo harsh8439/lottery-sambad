@@ -1,0 +1,106 @@
+.contact-layout {
+  display: flex;
+  background: #f6f8fb;
+  min-height: 100vh;
+}
+
+.contact-main {
+  flex: 1;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+  font-size: 24px;
+  color: #111827;
+  font-weight: 600;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.contact-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.contact-table thead th {
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 14px;
+  background: #f1f5f9;
+  color: #374151;
+  border-radius: 8px;
+}
+
+.contact-table tbody tr {
+  background: #fff;
+  transition: background 0.2s ease;
+}
+
+.contact-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.contact-table td {
+  padding: 14px 20px;
+  font-size: 15px;
+  color: #374151;
+  border-radius: 8px;
+}
+
+/* Buttons */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.edit-btn:hover {
+  background: #bae6fd;
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.delete-btn:hover {
+  background: #fecaca;
+}
+
+.empty-row {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+  font-size: 14px;
+}

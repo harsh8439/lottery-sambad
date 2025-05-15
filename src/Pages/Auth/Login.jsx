@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import lotteryImg from "../assets/image/lottery.png";
+import lotteryImg from "../../assets/image/lottery.png";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { IoEyeSharp } from "react-icons/io5";
@@ -45,7 +45,7 @@ export default function Login() {
 
       if (data.success) {
         toast.success("Login successful!");
-        setTimeout(() => navigate("/admin-panel"), 1500);
+        setTimeout(() => navigate("/"), 1500);
       } else {
         toast.error(data.message || "Login failed");
       }
@@ -95,12 +95,12 @@ export default function Login() {
             Log In
           </button>
 
-          <a className="links" href="#">
+          {/* <a className="links" href="#">
             Forgot username or password?
-          </a>
-          <Link className="links" to={"/sign-up"}>
+          </a> */}
+          {/* <Link className="links" to={"/sign-up"}>
             Create new account
-          </Link>
+          </Link> */}
         </div>
         <div className="login-right">
           <img src={lotteryImg} alt="Lottery Ticket" />

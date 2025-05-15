@@ -1,0 +1,41 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0a2a68;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 10px;
+}
+
+.dropdown-username {
+  padding: 8px;
+  font-weight: bold;
+  color: #0a2a68;
+}
+
+.dropdown-logout {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-logout:hover {
+  background: #ddd;
+}

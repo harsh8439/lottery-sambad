@@ -1,0 +1,250 @@
+.main__container{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+background-color: rgba(0, 0, 0, 0.459);
+opacity: 5;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.Contact-container {
+  background: #fff;
+  padding: 30px;
+  width: 350px;
+  font-family: sans-serif;
+  }
+  
+  .Contact-sidebar {
+    width: 250px;
+    background-color: #0d2a68;
+    color: white;
+    padding: 20px;
+  }
+  
+  .Contact-main {
+    flex: 1;
+    background-color: #f4f4f4;
+  }
+  
+  .Contact__Container {
+    padding-inline: 20px;
+  }
+  .Contact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .Contact-header h1 {
+    font-size: 24px;
+    color: white;
+    background-color: #0d2a68;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .Contact-profile {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Contact-add-btn {
+    text-align: right;
+    margin: 20px 0;
+  }
+  
+  .Contact-add-btn button {
+    background-color: #0d2a68;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .Contact-table-container {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+  }
+  
+  .Contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+  }
+  
+  .Contact-table th {
+    background-color: #0d2a68;
+    color: white;
+    padding: 12px;
+    text-align: left;
+  }
+  .Contact-table th,
+.Contact-table td {
+  text-align: center;
+}
+
+  .Contact-table td {
+    padding: 12px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .Contact-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  .email-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.email-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+}
+
+.email-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 10px 16px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.email-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 14px;
+  color: #000;
+}
+
+.email-actions {
+  display: flex;
+  gap: 12px;
+  margin-left: 12px;
+}
+
+.icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+
+
+
+
+.Notes-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.Notes-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+}
+
+.Notes-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 10px 16px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.Notes-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 14px;
+  color: #000;
+}
+
+.Notes-actions {
+  display: flex;
+  gap: 12px;
+  margin-left: 12px;
+}
+
+.icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+
+
+.Discription-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.Discription-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+}
+
+.Discription-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 10px 16px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.Discription-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 14px;
+  color: #000;
+}
+
+.Discription-actions {
+  display: flex;
+  gap: 12px;
+  margin-left: 12px;
+}
+
+.icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}

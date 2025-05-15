@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Signup.css'; // Updated CSS filename
-import lotteryImg from "../assets/image/lottery.png";
+import lotteryImg from ".././../assets/image/lottery.png";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 export default function Signup() {
