@@ -61,7 +61,7 @@ export default function Login() {
       <div className="login-box">
         <div className="login-left">
           <div className="logocontainer">
-            <img src="src\assets\image\logo.png" alt="Logo" className="logo" />
+            {/* <img src="src\assets\image\logo.png" alt="Logo" className="logo" /> */}
             <h1>LOTTERY</h1>
           </div>
           <h1>Log In</h1>
