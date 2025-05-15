@@ -1,12 +1,16 @@
+
+
+
 .Privacy-container {
     display: flex;
     min-height: 100vh;
     font-family: sans-serif;
+    color: rgb(0, 0, 0);
+    
 
   }
     .Privacy-main {
     flex: 1;
-    background-color: #f4f4f4;
   }
   
   .Privacy__Container {
@@ -16,9 +20,9 @@
 
 
   .privacy-content-wrapper {
-  background-color: #f4f4f4;
   padding: 30px;
   min-height: 100vh;
+  background: #ffffff;
 }
 
 .privacy-header {
@@ -37,7 +41,8 @@
   border: 1px solid #818181;
   resize: none;
   outline: none;
-  background-color: white;
+  background: #ffffff;
+  
 }
 
 .edit-btn {
@@ -123,7 +128,6 @@
 }
 
 .privacy-display-box {
-  background: #f4f4f4;
   padding: 1rem;
   border-radius: 6px;
   white-space: pre-wrap;
