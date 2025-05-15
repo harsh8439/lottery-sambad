@@ -144,7 +144,7 @@ const Faq = () => {
               <div className="faq-col action">Actions</div>
             </div>
 
-            {/* FAQ Items */}
+            {/* FAQ Items */} 
             {faqs?.map((faq, index) => {
               if (!faq || !faq.topic || !faq.description) return null;
               return (
