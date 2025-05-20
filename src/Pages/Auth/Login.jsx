@@ -37,9 +37,7 @@ export default function Login() {
 
       const data = await response.json();
 
-       localStorage.setItem("token",  data.remember_token);
-
-
+      localStorage.setItem("token", data.remember_token);
 
       console.log("Response : ", data);
 
@@ -61,7 +59,7 @@ export default function Login() {
       <div className="login-box">
         <div className="login-left">
           <div className="logocontainer">
-            <img src="src\assets\image\logo.png" alt="Logo" className="logo" />
+            {/* <img src="src\assets\image\logo.png" alt="Logo" className="logo" /> */}
             <h1>LOTTERY</h1>
           </div>
           <h1>Log In</h1>

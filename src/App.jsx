@@ -8,6 +8,7 @@ import Disclaimer from "./Pages/Disclaimer/Disclaimer";
 import Privacypolicy from "./Pages/Privacypolicy/Privacy";
 import Contact from "./Pages/Contact.us/Contact";
 import PrivateRoute from "./components/PrivateRoute"; // import your private route
+import Notification from "./Pages/Notifications/Notification";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Disclaimer" element={<Disclaimer />} />
         <Route path="/privacypolicy" element={<Privacypolicy />} />
+        <Route path="/notifications" element={<Notification />} />
       </Routes>
     </Router>
   );
