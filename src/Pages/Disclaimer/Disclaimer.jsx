@@ -32,16 +32,21 @@ export default function Disclaimer() {
   };
 
   const handleSave = (id) => {
-    fetch(`https://test.pearl-developer.com/lottery/public/api/disclaimer/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ note, important_note: importantNote }),
-    })
+    fetch(
+      `https://test.pearl-developer.com/lottery/public/api/disclaimer/${id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ note, important_note: importantNote }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.status) {
           const updated = disclaimerList.map((item) =>
-            item.id === id ? { ...item, note, important_note: importantNote } : item
+            item.id === id
+              ? { ...item, note, important_note: importantNote }
+              : item
           );
           setDisclaimerList(updated);
           setEditingId(null);
@@ -55,9 +60,12 @@ export default function Disclaimer() {
   };
 
   const handleDelete = (id) => {
-    fetch(`https://test.pearl-developer.com/lottery/public/api/disclaimer/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://test.pearl-developer.com/lottery/public/api/disclaimer/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.status) {
@@ -110,7 +118,7 @@ export default function Disclaimer() {
             onClick={() => setShowModal(true)}
             style={{
               padding: "10px 20px",
-              backgroundColor: "#007bff",
+              backgroundColor: "#0a2a68",
               color: "#fff",
               border: "none",
               cursor: "pointer",
@@ -126,7 +134,13 @@ export default function Disclaimer() {
               <div className="disclaimer-header">
                 <h2>Disclaimer & Important Note</h2>
                 {editingId !== item.id && (
-                  <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "30px",
+                      alignItems: "center",
+                    }}
+                  >
                     <button
                       className="edit-btn"
                       onClick={() => {
@@ -137,7 +151,10 @@ export default function Disclaimer() {
                     >
                       <FaPen className="edit-icon" />
                     </button>
-                    <button className="edit-btn" onClick={() => handleDelete(item.id)}>
+                    <button
+                      className="edit-btn"
+                      onClick={() => handleDelete(item.id)}
+                    >
                       <FaTrash className="edit-icon" color="red" />
                     </button>
                   </div>
@@ -226,7 +243,13 @@ export default function Disclaimer() {
               rows={4}
               style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
             />
-            <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                gap: "10px",
+              }}
+            >
               <button
                 onClick={handleCreate}
                 style={{
