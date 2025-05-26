@@ -9,7 +9,6 @@ export default function AdminPanel() {
   const [image1PM, setImage1PM] = useState(null);
   const [image6PM, setImage6PM] = useState(null);
   const [image8PM, setImage8PM] = useState(null);
-  const [allResults, setAllResults] = useState([]);
   const [selectedDate, setSelectedDate] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
 
@@ -21,7 +20,8 @@ export default function AdminPanel() {
     const formData = new FormData();
     formData.append("time", time);
     formData.append("image", file);
-try {
+
+    try {
       const response = await fetch(
         "https://test.pearl-developer.com/lottery/public/api/post-result",
         {
@@ -33,7 +33,6 @@ try {
 
       if (response.status) {
         console.log(response);
-        
         setImageFn(URL.createObjectURL(file));
         toast.success(`${time} result uploaded successfully.`);
       } else {
@@ -45,27 +44,41 @@ try {
     }
   };
 
-  useEffect(() => {
-    fetch("https://test.pearl-developer.com/lottery/public/api/get_all_result")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status) {
-          setAllResults(data.data);
-        }
-      })
-      .catch((err) => console.error("Fetch results error:", err));
-  }, []);
-
+  // ✅ Fetch results based on selected date using POST API
   useEffect(() => {
     if (selectedDate) {
-      const filtered = allResults.filter((item) =>
-        item.created_at.startsWith(selectedDate)
-      );
-      setFilteredResults(filtered);
+      const fetchResultsByDate = async () => {
+        try {
+          const response = await fetch(
+            "https://test.pearl-developer.com/lottery/public/api/get_all_result",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ date: selectedDate }),
+            }
+          );
+
+          const data = await response.json();
+
+          if (data.status && data.data) {
+            setFilteredResults(data.data);
+          } else {
+            setFilteredResults([]);
+            console.log("No data found for the selected date.");
+          }
+        } catch (err) {
+          console.error("Error fetching results by date:", err);
+          setFilteredResults([]);
+        }
+      };
+
+      fetchResultsByDate();
     } else {
       setFilteredResults([]);
     }
-  }, [selectedDate, allResults]);
+  }, [selectedDate]);
 
   const ResultCard = ({ time, image, setImage }) => (
     <div className={`result-card card-${time.replace(" ", "").toLowerCase()}`}>

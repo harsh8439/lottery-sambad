@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Notification.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
-import { toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Notification() {
